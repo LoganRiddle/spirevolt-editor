@@ -1,21 +1,28 @@
-use std::io::{stdout, Write};
-use crossterm::{execute, cursor, Result};
+use crossterm::{QueueableCommand, execute, cursor, Result};
+use std::io::{Write, stdout};
 
-pub(crate) fn controls(input:String) -> Result<()> {
-    // Move the cursor up by three rows
+
+pub(crate) fn controller(user_input: &mut String) { 
+    //println!("Debug: input = {}", user_input);
+    let mut a = 1;
+    let mut w = 1;
+    let mut s = 1;
+    let mut d = 1; 
+
+    if user_input.trim() == "w" { execute!(stdout(), cursor::MoveUp(w)); w += 1;
+
+    }else if user_input.trim() == "d" { execute!(stdout(), cursor::MoveRight(d)); d += 1;
     
-    if input == "^[[A" {
-        execute!(stdout(), cursor::MoveUp(1))?;
-    }else if input == "^[[C" {
-        execute!(stdout(), cursor::MoveRight(1))?;
-    }else if input == "^[[B" {
-        execute!(stdout(), cursor::MoveDown(1))?;
-    }else if input == "^[[D" {
-        execute!(stdout(), cursor::MoveLeft(1))?;
-    }
+    }else if user_input.trim() == "s" { execute!(stdout(), cursor::MoveDown(s)); s += 1;
+    
+    }else if user_input.trim() == "a" { execute!(stdout(), cursor::MoveLeft(a)); a += 1;
 
-    // Print a message after moving the cursor
-    //writeln!(stdout(), "Hello, world!")?;
+    }else { println!("Debug: Not detected!");}
 
-    Ok(())
+     
+    
+    /*let mut stdout = stdout();
+    stdout.queue(cursor::MoveTo(5,5));
+ 
+    stdout.flush();*/
 }
