@@ -1,0 +1,1 @@
+/home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/target/debug/vulcan-editor: /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/clean.rs /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/controls.rs /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/cwd.rs /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/main.rs

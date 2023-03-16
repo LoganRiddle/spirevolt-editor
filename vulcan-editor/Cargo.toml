@@ -1,5 +1,5 @@
 [package]
-name = "vulcan-vditor"
+name = "vulcan-editor"
 version = "0.1.4"
 edition = "2021"
 
