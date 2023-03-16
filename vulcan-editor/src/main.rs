@@ -6,9 +6,9 @@ use crossterm::event::{read, Event, KeyCode, KeyEvent, KeyModifiers};
 use crossterm::style::Print;
 use crossterm::terminal::{disable_raw_mode, enable_raw_mode};
 use crossterm::*;
+use terminal_size::{Width, Height, terminal_size};
 
 mod cwd;
-//mod controls;
 mod clean;
 
 
@@ -16,12 +16,7 @@ fn main() {
     // Variable initizations and declarations 
     let arg: Vec<String> = env::args().collect();
     let mut user_input = String::new();
-    //let mut stdout = stdout();
-    
-
-    // Cleans the terminal 
-    clean::cleaner();
-
+    let h = 0;
 
     // Finds current directory to set filepath for editing 
     let curd = cwd::get_current_working_dir();
@@ -30,7 +25,8 @@ fn main() {
     
     let buf:&str = "/";
     let file:&String = &arg[1];
-    
+   
+    // Appends to the filepath string 
     filepath.push_str(&buf);
     filepath.push_str(&file);
     
@@ -38,23 +34,30 @@ fn main() {
     // Takes file data and converts to a string
     let data = fs::read_to_string(filepath).expect("Unable to read file");
     
-    
+
+    // Finds the terminal dimensions
+    let size = terminal_size();
+            
     //going into raw mode
     enable_raw_mode().unwrap();
 
     //clearing the screen, going to top left corner and printing welcoming message
+    clean::cleaner();
     user_input.clear();
-    execute!(stdout(), cursor::MoveTo(0, 0)).unwrap();
-    println!("Vulcan Editor: ctrl + x to exit, use arrow keys to navigate."); 
     
+    Height(h);
+
+    execute!(stdout(), cursor::MoveTo(0, h)).unwrap();
+    println!("Vulcan Editor: ctrl + x to exit, use arrow keys to navigate."); 
+   
+    // Sets the cursor below the menu and prints file contents 
     execute!(stdout(), cursor::MoveTo(0, 1)).unwrap();
     println!("{}", data);
     execute!(stdout(), cursor::MoveTo(0, 1)).unwrap();
 
+
     //key detection
     loop {
-        //println!("{}", data);
-
         //matching the key
         match read().unwrap() {
             // Directional Controls
