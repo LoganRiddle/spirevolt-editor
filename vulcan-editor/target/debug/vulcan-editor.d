@@ -1,1 +1,1 @@
-/home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/target/debug/vulcan-editor: /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/cwd.rs /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/main.rs
+/home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/target/debug/vulcan-editor: /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/cwd.rs /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/main.rs /home/motobecane28/Projects/Vulcan-Editor/vulcan-editor/src/term_prep.rs

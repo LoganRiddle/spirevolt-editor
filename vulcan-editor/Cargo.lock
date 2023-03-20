@@ -3,6 +3,12 @@
 version = 3
 
 [[package]]
+name = "ansi-escapes"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7e3c0daaaae24df5995734b689627f8fa02101bc5bbc768be3055b66a010d7af"
+
+[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -478,8 +484,9 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "vulcan-editor"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
+ "ansi-escapes",
  "clearscreen",
  "crossterm",
  "terminal_size",

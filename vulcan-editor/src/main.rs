@@ -1,3 +1,4 @@
+// Rust crates
 use std::*;
 use std::io::{stdout, Write};
 use unindent::unindent;
@@ -5,18 +6,18 @@ use crossterm::event::{read, Event, KeyCode, KeyEvent, KeyModifiers};
 use crossterm::style::Print;
 use crossterm::terminal::{disable_raw_mode, enable_raw_mode};
 use crossterm::*;
-//use terminal_size::{Width, Height, terminal_size};
 use clearscreen::*;
+use ansi_escapes::*;
 
+// Personal Crates
 mod cwd;
+mod term_prep;
 
 
 fn main() {
     // Variable initizations and declarations 
     let arg: Vec<String> = env::args().collect();
-    //let h = 0;
-    let mut char_index = 0;
-
+    
     // Finds current directory to set filepath for editing 
     let curd = cwd::get_current_working_dir();
     
@@ -31,32 +32,21 @@ fn main() {
     
 
     // Takes file data and converts to a string
-    let data = fs::read_to_string(filepath).expect("Unable to read file");
+    let mut data = fs::read_to_string(filepath).expect("Unable to read file"); 
+    let mut buffer_data = String::new();
     
+    // Cleans and preps stdout() for printing
+    term_prep::term_prep(data);
+        
 
-    // Finds the terminal dimensions
-    //let size = terminal_size();
-            
-    //going into raw mode
-    enable_raw_mode().unwrap();
-
-    //clearing the screen, going to top left corner and printing welcoming message
-    clearscreen::clear().expect("failed to clear screen"); 
-
-    //Height(h);
-
-    //execute!(stdout(), cursor::MoveTo(0, h)).unwrap();
-    println!("Vulcan Editor: ctrl + x to exit, use arrow keys to navigate."); 
-   
     // Sets the cursor below the menu and prints file contents 
     execute!(stdout(), cursor::MoveTo(0, 1)).unwrap();
-    writeln!(stdout(), "{}", data).unwrap();
-
-    execute!(stdout(), cursor::MoveTo(0, 1)).unwrap();
-
 
     //key detection
     loop {
+        // Turns on raw mode
+        enable_raw_mode().unwrap();
+
         //matching the key
         match read().unwrap() {
             // Directional Controls
@@ -83,7 +73,7 @@ fn main() {
             Event::Key(KeyEvent {
                 code: KeyCode::Backspace,
                 ..
-            }) => print!(" "),
+            }) => print!(""),
 
 
             // Exit without saving
@@ -95,10 +85,14 @@ fn main() {
             
             _ => (),
         }
+        
+        disable_raw_mode().unwrap();
     }
-
     clearscreen::clear().expect("failed to clear screen"); 
  
     //disabling raw mode
     disable_raw_mode().unwrap();
 }
+
+
+
