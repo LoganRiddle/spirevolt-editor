@@ -1,22 +1,21 @@
 use std::*;
 use std::io::{stdout, Write};
 use unindent::unindent;
-use crossterm::cursor;
 use crossterm::event::{read, Event, KeyCode, KeyEvent, KeyModifiers};
 use crossterm::style::Print;
 use crossterm::terminal::{disable_raw_mode, enable_raw_mode};
 use crossterm::*;
-use terminal_size::{Width, Height, terminal_size};
+//use terminal_size::{Width, Height, terminal_size};
+use clearscreen::*;
 
 mod cwd;
-mod clean;
 
 
 fn main() {
     // Variable initizations and declarations 
     let arg: Vec<String> = env::args().collect();
-    let mut user_input = String::new();
-    let h = 0;
+    //let h = 0;
+    let mut char_index = 0;
 
     // Finds current directory to set filepath for editing 
     let curd = cwd::get_current_working_dir();
@@ -36,23 +35,23 @@ fn main() {
     
 
     // Finds the terminal dimensions
-    let size = terminal_size();
+    //let size = terminal_size();
             
     //going into raw mode
     enable_raw_mode().unwrap();
 
     //clearing the screen, going to top left corner and printing welcoming message
-    clean::cleaner();
-    user_input.clear();
-    
-    Height(h);
+    clearscreen::clear().expect("failed to clear screen"); 
 
-    execute!(stdout(), cursor::MoveTo(0, h)).unwrap();
+    //Height(h);
+
+    //execute!(stdout(), cursor::MoveTo(0, h)).unwrap();
     println!("Vulcan Editor: ctrl + x to exit, use arrow keys to navigate."); 
    
     // Sets the cursor below the menu and prints file contents 
     execute!(stdout(), cursor::MoveTo(0, 1)).unwrap();
-    println!("{}", data);
+    writeln!(stdout(), "{}", data).unwrap();
+
     execute!(stdout(), cursor::MoveTo(0, 1)).unwrap();
 
 
@@ -80,6 +79,11 @@ fn main() {
                 code: KeyCode::Right,
                 ..
             }) => execute!(stdout(), cursor::MoveRight(1)).unwrap(),
+            
+            Event::Key(KeyEvent {
+                code: KeyCode::Backspace,
+                ..
+            }) => print!(" "),
 
 
             // Exit without saving
@@ -93,6 +97,8 @@ fn main() {
         }
     }
 
+    clearscreen::clear().expect("failed to clear screen"); 
+ 
     //disabling raw mode
     disable_raw_mode().unwrap();
 }
