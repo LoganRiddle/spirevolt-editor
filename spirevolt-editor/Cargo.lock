@@ -405,6 +405,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
 
 [[package]]
+name = "spirevolt-editor"
+version = "0.1.8"
+dependencies = [
+ "ansi-escapes",
+ "clearscreen",
+ "crossterm",
+ "terminal_size",
+ "unindent",
+]
+
+[[package]]
 name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -481,17 +492,6 @@ name = "version_check"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
-
-[[package]]
-name = "vulcan-editor"
-version = "0.1.7"
-dependencies = [
- "ansi-escapes",
- "clearscreen",
- "crossterm",
- "terminal_size",
- "unindent",
-]
 
 [[package]]
 name = "wasi"

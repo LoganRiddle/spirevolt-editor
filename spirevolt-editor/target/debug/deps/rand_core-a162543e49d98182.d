@@ -1,0 +1,11 @@
+/home/motobecane28/Projects/spirevolt-editor/spirevolt-editor/target/debug/deps/rand_core-a162543e49d98182.rmeta: /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/lib.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/block.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/error.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/impls.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/le.rs
+
+/home/motobecane28/Projects/spirevolt-editor/spirevolt-editor/target/debug/deps/librand_core-a162543e49d98182.rlib: /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/lib.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/block.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/error.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/impls.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/le.rs
+
+/home/motobecane28/Projects/spirevolt-editor/spirevolt-editor/target/debug/deps/rand_core-a162543e49d98182.d: /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/lib.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/block.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/error.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/impls.rs /home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/le.rs
+
+/home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/lib.rs:
+/home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/block.rs:
+/home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/error.rs:
+/home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/impls.rs:
+/home/motobecane28/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.6.4/src/le.rs:
